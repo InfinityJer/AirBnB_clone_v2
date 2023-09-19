@@ -6,12 +6,13 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, DateTime
 Base = declarative_base()
 
+
 class BaseModel:
     """A base class for all hbnb models"""
     id = Column(String(60), primary_key=True, nullable=False)
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
     updated_at = Column(DateTime, nullable=False, default=datetime.utcnow)
-         
+
     def __init__(self, *args, **kwargs):
         """Instatntiates a new model"""
         if not kwargs:
@@ -27,7 +28,7 @@ class BaseModel:
                             datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
                 elif key != '__class__':
                     setattr(self, key, value)
-            
+
     def __str__(self):
         """Returns a string representation of the instance"""
         cls = (str(type(self)).split('.')[-1]).split('\'')[0]
@@ -50,6 +51,6 @@ class BaseModel:
         return dictionary
 
     def delete(self):
-        """Delete current instance from storage
-        <models.storage> by calling this"""
-        models.storage.delete(self)
+        """Deletes the current instance from storage (models.storage)"""
+        from models import storage
+        storage.delete(self)
