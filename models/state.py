@@ -6,25 +6,30 @@ from sqlalchemy.orm import relationship
 from os import getenv
 
 
+storage_type = getenv("HBNB_TYPE_STORAGE")
+
+
 class State(BaseModel, Base):
     """ State class """
-    __tablename__ = "states"
 
-    name = Column(String(128), nullable=False)
-
-    # Define the relationship between State and City
-    if getenv("HBNB_TYPE_STORAGE") == "db":
-        
-        cities = relationship("City", back_populates="state",  cascade="all,delete-orphan")
+    __tablename__ = 'states'
+    if storage_type == "db":
+        name = Column(String(128), nullable=False)
+        cities = relationship('City', cascade="all,delete", backref="state")
     else:
         name = ""
-       
+        # DONE: for FileStorage: getter attribute cities that
+        # returns the list of City instances with state_id equals
+        # to the current State.id => It will be the FileStorage
+        # relationship between State and City
+
         @property
         def cities(self):
-            """Getter attribute to return a list of City instances"""
+            """getter docuemnt"""
             from models import storage
-            cities_list = []
-            for city in storage.all("City").values():
+            citiesList = []
+            citiesAll = storage.all(City)
+            for city in citiesAll.values():
                 if city.state_id == self.id:
-                    cities_list.append(city)
-            return cities_list
+                    citiesList.append(city)
+            return citiesList
