@@ -12,7 +12,7 @@ from os import getenv
 storage_type = getenv("HBNB_TYPE_STORAGE")
 
 place_amenity = Table('place_amenity', Base.metadata,
-                          Column('place_id', String(60),
+                       Column('place_id', String(60),
                                  ForeignKey('places.id',
                                             onupdate='CASCADE',
                                             ondelete='CASCADE'),
@@ -22,7 +22,8 @@ place_amenity = Table('place_amenity', Base.metadata,
                                             onupdate='CASCADE',
                                             ondelete='CASCADE'),
                                  primary_key=True, nullable=False)
-                          )
+                     )
+
 class Place(BaseModel, Base):
     """A place to stay"""
 
