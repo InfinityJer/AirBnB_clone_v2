@@ -376,6 +376,42 @@ class HBNBCommand(cmd.Cmd):
         print("Updates an object with new information")
         print("Usage: update <className> <id> <attName> <attVal>\n")
 
+    def parse_value(self, value):
+        """Parse the value according to the specified syntax rules."""
+        if value.startswith('"') and value.endswith('"'):
+            # String enclosed in double quotes
+            # Remove quotes and replace underscores with spaces
+            value = value[1:-1].replace('_', ' ')
+        elif '.' in value:
+            # Float: <unit>.<decimal>
+            try:
+                value = float(value)
+            except ValueError:
+                raise ValueError("Invalid float value")
+        else:
+            # Integer (default case)
+            try:
+                value = int(value)
+            except ValueError:
+                raise ValueError("Invalid integer value")
+        return value
+
+    def emptyline(self):
+        pass
+
+    def do_EOF(self, line):
+        """Handle EOF (Ctrl+D)"""
+        print()
+        return True
+
+    def do_quit(self, line):
+        """Exit the command prompt"""
+        return True
+
+    def do_exit(self, line):
+        """Exit the command prompt"""
+        return True
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
