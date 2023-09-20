@@ -32,7 +32,7 @@ class DBStorage:
                 key = '{}.{}'.format(cls.__name__, obj.id)
                 objects_dict[key] = obj
         else:
-            for obj_cls in base_model.classes:
+            for obj_cls in classes:
                 query_objects = self.__session.query(obj_cls)
                 for obj in query_objects:
                     key = '{}.{}'.format(obj_cls.__name__, obj.id)
