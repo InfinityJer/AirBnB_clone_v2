@@ -66,7 +66,7 @@ class HBNBCommand(cmd.Cmd):
         "Review": ["id", "created_at", "updated_at",
                    "place_id", "user_id", "text"],
     }
-    
+
     dot_cmds = ['all', 'count', 'show', 'destroy', 'update']
     types = {
              'number_rooms': int, 'number_bathrooms': int,
