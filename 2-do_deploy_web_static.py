@@ -10,8 +10,7 @@ from fabric.api import *
 import os
 
 env.hosts = ['18.207.2.67', '52.91.120.49']
-env.user = 'ubuntu'
-env.key_filename = '~/.ssh/school'
+env.user = "ubuntu"
 
 
 def do_pack():
