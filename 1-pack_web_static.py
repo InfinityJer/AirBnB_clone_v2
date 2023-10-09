@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-My AirBnB clone repository's web_static folder's 
+My AirBnB clone repository's web_static folder's
 contents were used by a Fabric script to create a.tgz archive.
 """
 
@@ -24,4 +24,3 @@ def do_pack():
     if local("tar -cvzf {} web_static".format(file_name)).failed is True:
         return None
     return file_name
-
