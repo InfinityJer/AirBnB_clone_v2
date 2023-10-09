@@ -5,9 +5,10 @@ This script uploads a web_static archive to a web server, uncompresses it,
 and creates a symbolic link to the new release.
 """
 
-from fabric.api import run, put, env, local, sudo
+import os.path
+from os.path import exists
 from datetime import datetime
-from os.path import exists, isdir
+from fabric.api import env, local, put, run
 
 env.hosts = ['18.207.2.67', '52.91.120.49']
 env.user = 'ubuntu'
