@@ -5,12 +5,13 @@ This script uploads a web_static archive to a web server, uncompresses it,
 and creates a symbolic link to the new release.
 """
 
+from fabric.api import run, put, env, local, sudo
 from datetime import datetime
-from fabric.api import *
-import os
+from os.path import exists, isdir
 
 env.hosts = ['18.207.2.67', '52.91.120.49']
-env.user = "ubuntu"
+env.user = 'ubuntu'
+env.key_filename = '~/.ssh/school'
 
 
 def do_deploy(archive_path):
