@@ -25,7 +25,7 @@ class State(BaseModel, Base):
 
         @property
         def cities(self):
-            """getter docuemnt"""
+            """getter document"""
             from models import storage
             citiesList = []
             citiesAll = storage.all(City)
