@@ -4,19 +4,19 @@
 ---
 ## Concepts
 For this project, we expect you to look at this concept:
-* (AirBnB clone)[https://intranet.alxswe.com/concepts/74]
+* [AirBnB clone](https://intranet.alxswe.com/concepts/74)
 ---
 ## Resources
-* (What is a Web Framework?)[https://intelegain-technologies.medium.com/what-are-web-frameworks-and-why-you-need-them-c4e8806bd0fb]
-* (A Minimal Application)[https://flask.palletsprojects.com/en/2.3.x/quickstart/#a-minimal-application]
-* (Routing) [https://jinja.palletsprojects.com/en/2.9.x/templates/#synopsis]except “HTTP Methods”
+* [What is a Web Framework?](https://intelegain-technologies.medium.com/what-are-web-frameworks-and-why-you-need-them-c4e8806bd0fb)
+* [A Minimal Application](https://flask.palletsprojects.com/en/2.3.x/quickstart/#a-minimal-application)
+* [Routing](https://jinja.palletsprojects.com/en/2.9.x/templates/#synopsis)except “HTTP Methods”
 * Rendering Templates
 * Synopsis
 * Variables
 * Comments
 * Whitespace Control
 * List of Control Structures (read up to “Call”)
-* (Flask)[https://palletsprojects.com/p/flask/]
+* [Flask](https://palletsprojects.com/p/flask/)
 * Jinja
 
 ## Requirements
